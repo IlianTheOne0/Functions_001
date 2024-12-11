@@ -58,7 +58,7 @@ void print_arr(int* arr, unsigned long long size)
 	cout << endl;
 }
 
-void delete_arr(int* arr)
+void delete_arr(int*& arr)
 {
 	delete[] arr;
 	arr = nullptr;
@@ -109,40 +109,6 @@ void _add(int*& arr, unsigned long long& size)
 	arr = newArr;
 	size++;
 }
-
-/*
-void _insert(int*& arr, unsigned long long& size)
-{
-	int* index = new int{};
-	
-	do
-	{
-		cout << "Enter the index you want to replace (from 0 to " << size - 1 << "): ";
-		cin >> *index;
-	} while (*index >= size);
-	
-	int* newArr = new int[size];
-	unsigned long long i = 0;
-
-	random_device rd;
-	mt19937 gen(rd());
-	uniform_int_distribution<> dist(0, 50);
-	for (; i < *index; i++)
-	{
-		newArr[i] = arr[i];
-	}
-	newArr[*index] = dist(gen);
-	for (; i < size; i++)
-	{
-		newArr[i + 1] = arr[i];
-	}
-
-	delete[] arr;
-	arr = newArr;
-
-	delete index;
-}
-*/
 
 void _insert(int*& arr, unsigned long long& size)
 {
