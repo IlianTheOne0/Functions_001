@@ -146,26 +146,45 @@ void _insert(int*& arr, unsigned long long& size)
 
 void _insert(int*& arr, unsigned long long& size)
 {
-	int* index = new int{};
+	unsigned long long index;
 
 	do
 	{
 		cout << "Enter the index you want to replace (from 0 to " << size - 1 << "): ";
-		cin >> *index;
-	} while (*index >= size);
+		cin >> index;
+	} while (index >= size);
 
 	random_device rd;
 	mt19937 gen(rd());
 	uniform_int_distribution<> dist(0, 50);
 
-	arr[*index] = dist(gen);
-
-	delete index;
+	arr[index] = dist(gen);
 }
 
 void _delete(int*& arr, unsigned long long& size)
 {
+	unsigned long long index;
 
+	do
+	{
+		cout << "Enter the index you want to delete (from 0 to " << size - 1 << "): ";
+		cin >> index;
+	} while (index >= size);
+
+	int* newArr = new int[size - 1];
+
+	for (unsigned long long i = 0; i < index; i++)
+	{
+		newArr[i] = arr[i];
+	}
+	for (unsigned long long i = index + 1; i < size; i++)
+	{
+		newArr[i - 1] = arr[i];
+	}
+
+	delete[] arr;
+	arr = newArr;
+	size--;
 }
 
 int main()
