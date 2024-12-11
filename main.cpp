@@ -8,6 +8,6 @@ using std::cin;
 int main()
 {
 
-	_getch();
+	char ch = _getch();
 	return 0;
 }
