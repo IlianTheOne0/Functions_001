@@ -53,6 +53,10 @@ void definder(int* arr, const int* size, int min, int max, int*& new_size, int*&
 	new_arr = new int[*new_size];
 	int index{};
 
+	if (new_arr == nullptr) {
+		exit(1);
+	}
+
 	for (int i = 0; i < *size; i++)
 	{
 		if (arr[i] >= min && arr[i] <= max)
